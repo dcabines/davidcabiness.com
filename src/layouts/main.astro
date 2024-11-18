@@ -1,0 +1,46 @@
+---
+
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>David Cabiness</title>
+    <slot name="head"></slot>
+  </head>
+  <body data-theme>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    height: 100vh;
+  }
+
+  [data-theme] {
+    --color-dark2: #19181a;
+    --color-dark1: #221f22;
+    --color-background: #fff;
+    --color-text: #222;
+    --color-accent1: #ff6188;
+    --color-accent2: #fc9867;
+    --color-accent3: #ffd866;
+    --color-accent4: #a9dc76;
+    --color-accent5: #78dce8;
+    --color-accent6: #ab9df2;
+    --color-dimmed0: #eee;
+    --color-dimmed1: #c1c0c0;
+    --color-dimmed2: #939293;
+    --color-dimmed3: #727072;
+    --color-dimmed4: #5b595c;
+    --color-dimmed5: #403e41;
+  }
+</style>

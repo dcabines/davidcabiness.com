@@ -1,183 +1,79 @@
 ---
-
+import Layout from "../layouts/main.astro";
+import Header from '../parts/header.astro';
+import About from "../content/about.md";
+import Tech from "../content/tech.md";
+import Experience from "../content/experience.md";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>David Cabiness</title>
-  </head>
-  <body>
-    <div class="content">
-      <div class="card">
-        <div class="card-side card-front">
-          <div data-theme="monokai-pro" class="code-block">
-            <div class="gutter"></div>
-            <div class="line">
-              <span style="color:var(--color-accent1)">export</span>
-              <span style="color:var(--color-accent1)">default</span>
-              <span style="color:var(--color-accent5);">class</span>
-              <span style="color:var(--color-accent4)">Employee</span>
-              <span style="color:var(--color-dimmed2)">{'{'}</span>
-            </div>
-            <div class="line indent">
-              <span style="color:var(--color-accent5)">constructor</span>
-              <span style="color:var(--color-dimmed2)">{'{'}</span>
-            </div>
-            <div class="line indent-2">
-              <span class="word">
-                <span style="color:var(--color-dimmed1);font-style:italic">this</span>
-                <span style="color:var(--color-dimmed2);">.</span>
-                <span style="color:var(--color-dimmed2);">name</span>
-              </span>
+<link
+  slot="head"
+  href="https://fonts.googleapis.com/css?family=Lato:400,300,700"
+  rel="stylesheet"
+  type="text/css"
+/>
 
-              <span style="color:var(--color-accent1);">=</span>
+<Layout>
+  <main>
+    <Header />
 
-              <span class="word">
-                <span style="color:var(--color-dimmed2);">'</span>
-                <span style="color:var(--color-accent3);">David Cabiness</span>
-                <span style="color:var(--color-dimmed2);">';</span>
-              </span>
-            </div>
-            <div class="line indent-2">
-              <span class="word">
-                <span style="color:var(--color-dimmed1);font-style:italic">this</span>
-                <span style="color:var(--color-dimmed2);">.</span>
-                <span style="color:var(--color-dimmed2);">yearsOfExperience</span>
-              </span>
+    <article>
+      <section>
+        <About />
+      </section>
 
-              <span style="color:var(--color-accent1);">=</span>
+      <section>
+        <Tech />
+      </section>
 
-              <span class="word">
-                <span style="color:var(--color-accent6);">14</span>
-                <span style="color:var(--color-dimmed2);">;</span>
-              </span>
-            </div>
-            <div class="line indent">
-              <span style="color:var(--color-dimmed2);">{'}'}</span>
-            </div>
-            <div class="line">
-              <span style="color:var(--color-dimmed2);">{'}'}</span>
-            </div>
-          </div>
-        </div>
-        <div class="card-side card-back">
-          Thank you!
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+      <section>
+        <Experience />
+      </section>
+    </article>
+  </main>
+</Layout>
+
+<style is:global>
+  h2 {
+    color: var(--color-dimmed4);
+    display: block;
+    border-bottom: 1px solid black;
+  }
+
+  h3 {
+    color: var(--color-dimmed3);
+    margin-top: 1rem;
+  }
+
+  li {
+    margin-left: 1rem;
+  }
+</style>
 
 <style>
-  [data-theme="monokai-pro"] {
-    --color-dark2: #19181a;
-    --color-dark1: #221f22;
-    --color-background: #2d2a2e;
-    --color-text: #fcfcfa;
-    --color-accent1: #ff6188;
-    --color-accent2: #fc9867;
-    --color-accent3: #ffd866;
-    --color-accent4: #a9dc76;
-    --color-accent5: #78dce8;
-    --color-accent6: #ab9df2;
-    --color-dimmed1: #c1c0c0;
-    --color-dimmed2: #939293;
-    --color-dimmed3: #727072;
-    --color-dimmed4: #5b595c;
-    --color-dimmed5: #403e41;
-  }
-
-  .code-block .gutter {
-    width: 2ch;
-    background-color: rgba(255,255,255,0.1);
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-  }
-
-  .code-block .line {
-    counter-increment: line-number;
-    margin-left: -2ch;
-  }
-
-  .code-block .line:before {
-    display: inline-block;
-    content: counter(line-number);
-    color: var(--color-dimmed3);
-    font-size: 0.8em;
-    margin-right: 1ch;
-    width: 2ch;
-    text-align: right;
-  }
-
-  .code-block .line.indent:before {
-    margin-right: 3ch;
-  }
-
-  .code-block .line.indent-2:before {
-    margin-right: 5ch;
-  }
-
-  .code-block .line .word span:not(:first-child) {
-    margin-left: -1ch;
-  }
-
-  html,
   body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    color: #fcfcfa;
-    font-family: "Lucida Console", Monaco, monospace;
-    background: linear-gradient(135deg, #78dce8 30%, #ab9df2 70%);
-    height: 100vh;
-  }
-
-  .content {
+    min-height: 100%;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.1rem;
+    font-family: "Lato", sans-serif;
+    background: var(--color-dimmed0);
     display: flex;
-    align-items: center;
     flex-direction: column;
-    gap: 4rem;
-    padding-top: 5rem;
+    align-items: center;
   }
 
-  .card {
-    perspective: 150rem;
-    height: 10rem;
-    position: relative;
-    width: 44ch;
+  main {
+    width: 80vw;
+    color: var(--color-text);
+    background: var(--color-background);
+    box-shadow: 1px 1px 2px var(--color-dimmed1);
+    border-radius: 3px;
+    padding: 40px;
+    margin-top: 50px;
   }
 
-  .card-side {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 1rem 2ch;
-    height: 8rem;
-    width: 40ch;
-    overflow: hidden;
-    backface-visibility: hidden;
-    border-radius: 10px;
-    box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.6);
-    transition: all 0.8s ease;
-    background-color: #1c1c1c;
-  }
-
-  .card-back {
-    transform: rotateY(180deg);
-  }
-
-  .card:hover .card-front {
-    transform: rotateY(-180deg);
-  }
-
-  .card:hover .card-back {
-    transform: rotateY(0deg);
+  section {
+    margin: 1rem 0;
   }
 </style>

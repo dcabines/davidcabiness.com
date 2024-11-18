@@ -5,8 +5,9 @@
 
 July 2014 - November 2024
 
-- Wrote a large portion of their front end and data layer using ExtJs and Angular
 - Led the rewrite effort of their legacy site with a team of 4 developers
+- Ran daily standups and assigned out work for about one year for a team of 4 developers
+- Created a large portion of the front end and data layer using ExtJs, Angular, C#, and SQL
 - Created desktop application for users with intermittent internet access
 - Created mobile site with timesheets, timesheet approval, and PTO entry
 - Created new time sheet application and several supporting pages using Angular and NgRx
@@ -19,14 +20,17 @@ July 2014 - November 2024
 
 September 2013 - July 2014
 
-- Worked on their employee portal with a team of 3 developers
-- Rewrote their single sign on, signup, and password reset features
+- Worked on the employee portal with a team of 3 developers
+- Rewrote the single sign on, signup, and password reset features
 
 ### Web Data Software
 *Myrtle Beach, South Carolina*
 
 November 2010 - September 2013
 
-- Worked with multiple clients directly
-- Created several websites with good SEO
-- Created real estate MLS software
+- Worked with multiple clients directly and was the primary account manager for two clients
+- 
+- Created customer websites with good SEO including a reastaurant, water park, car dealership, and several real estate 
+- Created real estate agent manager dashboard that reported on recent sales
+- Created an Excel generation program using MLS data for real estate agents
+- Setup a new law office's desktop computers and Microsoft accounts

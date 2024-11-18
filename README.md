@@ -58,3 +58,11 @@ November 2010 - September 2013
 - Created an Excel generation program using MLS data for real estate agents
 - Setup a new law office's desktop computers and Microsoft accounts
 - Worked primarily as a solo developer
+
+## Education
+
+### Horry-Georgetown Technical College
+
+Myrtle Beach, South Carolina
+
+Assocates in Computer Science with a Programming Emphasis

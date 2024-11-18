@@ -9,7 +9,7 @@
     <title>David Cabiness</title>
     <slot name="head"></slot>
   </head>
-  <body data-theme>
+  <body>
     <slot />
   </body>
 </html>
@@ -19,28 +19,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    --color-background: #fff;
+    --color-text: #222;
+    --color-body: #eee;
+    --color-grey1: #c1c0c0;
+    --color-grey2: #939293;
+    --color-grey3: #727072;
+    --color-grey4: #5b595c;
+    --color-grey5: #403e41;
   }
 
   html {
     height: 100vh;
-  }
-
-  [data-theme] {
-    --color-dark2: #19181a;
-    --color-dark1: #221f22;
-    --color-background: #fff;
-    --color-text: #222;
-    --color-accent1: #ff6188;
-    --color-accent2: #fc9867;
-    --color-accent3: #ffd866;
-    --color-accent4: #a9dc76;
-    --color-accent5: #78dce8;
-    --color-accent6: #ab9df2;
-    --color-dimmed0: #eee;
-    --color-dimmed1: #c1c0c0;
-    --color-dimmed2: #939293;
-    --color-dimmed3: #727072;
-    --color-dimmed4: #5b595c;
-    --color-dimmed5: #403e41;
   }
 </style>

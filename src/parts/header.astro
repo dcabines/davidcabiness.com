@@ -4,12 +4,14 @@
     <span class="last-name">Cabiness</span>
   </div>
   <div class="contact-info">
-    <span class="email">dcabines@gmail.com</span>
+    <span>Software Developer</span>
     <span class="separator"></span>
-    <span class="phone">843-957-2476</span>
+    <span>dcabines@gmail.com</span>
     <span class="separator"></span>
-    <span class="website">
-      <a href="http://davidcabiness.com">http://davidcabiness.com</a>
+    <span>843-957-2476</span>
+    <span class="separator"></span>
+    <span>
+      <a href="http://davidcabiness.com">https://davidcabiness.com</a>
     </span>
   </div>
 </header>
@@ -39,7 +41,7 @@
   .contact-info {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1ch;
   }
 
   .separator {
@@ -48,8 +50,34 @@
     border-left: 2px solid #999;
   }
 
-  .website a {
+  a {
     text-decoration: none;
     color: var(--color-text);
+  }
+
+  @media print {
+    .full-name {
+      text-transform: none;
+    }
+
+    .first-name {
+      font-weight: normal;
+    }
+
+    .last-name {
+      font-weight: normal;
+    }
+
+    .contact-info {
+      display: block;
+    }
+
+    .contact-info span {
+      display: block;
+    }
+
+    .contact-info .separator {
+      display: none;
+    }
   }
 </style>

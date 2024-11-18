@@ -1,4 +1,4 @@
-## Tech
+## Languages and Technologies
 - C# .NET & ASP.NET
 - JavaScript & TypeScript
 - HTML & CSS

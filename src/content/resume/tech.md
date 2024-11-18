@@ -4,3 +4,5 @@
 - HTML & CSS
 - Angular & NgRx
 - T-SQL
+- Docker & Linux
+- HTTP & Web API

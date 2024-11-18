@@ -6,3 +6,5 @@
 - T-SQL
 - Docker & Linux
 - HTTP & Web API
+- git, PowerShell & Bash
+- Azure DevOps

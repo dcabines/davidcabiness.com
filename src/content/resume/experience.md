@@ -14,6 +14,8 @@ July 2014 - November 2024
 - Created new approval workflow system using Node-Red and TypeScript
 - Created several utilities like file generators and importers for processing timesheet and personnel data
 - Created several microservices by breaking the existing monolithic application into manageable pieces
+- Worked on projects as a team and as a solo developer simultaneously
+- Worked in the office for about 6 years and worked remotely for the remaining 4 years
 
 ### Greenshades Software
 *Jacksonville, Florida*
@@ -22,6 +24,7 @@ September 2013 - July 2014
 
 - Worked on the employee portal with a team of 3 developers
 - Rewrote the single sign on, signup, and password reset features
+- Worked on a team of 5 developers, a QA, and a project manager
 
 ### Web Data Software
 *Myrtle Beach, South Carolina*
@@ -33,3 +36,4 @@ November 2010 - September 2013
 - Created real estate agent manager dashboard that reported on recent sales
 - Created an Excel generation program using MLS data for real estate agents
 - Setup a new law office's desktop computers and Microsoft accounts
+- Worked primarily as a solo developer

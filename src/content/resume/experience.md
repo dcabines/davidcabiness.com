@@ -3,7 +3,7 @@
 ### WerkTek
 *Jacksonville, Florida*
 
-July 2014 - November 2024 *(10 years, 5 months)*
+July 2014 - November 2024
 
 - Wrote a large portion of their front end and data layer using ExtJs and Angular
 - Led the rewrite effort of their legacy site with a team of 4 developers
@@ -17,7 +17,7 @@ July 2014 - November 2024 *(10 years, 5 months)*
 ### Greenshades Software
 *Jacksonville, Florida*
 
-September 2013 - July 2014 *(11 months)*
+September 2013 - July 2014
 
 - Worked on their employee portal with a team of 3 developers
 - Rewrote their single sign on, signup, and password reset features
@@ -25,7 +25,7 @@ September 2013 - July 2014 *(11 months)*
 ### Web Data Software
 *Myrtle Beach, South Carolina*
 
-November 2010 - September 2013 *(2 years, 11 months)*
+November 2010 - September 2013
 
 - Worked with multiple clients directly
 - Created several websites with good SEO

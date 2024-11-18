@@ -29,7 +29,6 @@ September 2013 - July 2014
 November 2010 - September 2013
 
 - Worked with multiple clients directly and was the primary account manager for two clients
-- 
 - Created customer websites with good SEO including a reastaurant, water park, car dealership, and several real estate 
 - Created real estate agent manager dashboard that reported on recent sales
 - Created an Excel generation program using MLS data for real estate agents

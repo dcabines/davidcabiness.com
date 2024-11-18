@@ -4,23 +4,20 @@
     <span class="last-name">Cabiness</span>
   </div>
   <div class="contact-info">
-    <span>Software Developer</span>
-    <span class="separator"></span>
-    <span>dcabines@gmail.com</span>
-    <span class="separator"></span>
-    <span>843-957-2476</span>
-    <span class="separator"></span>
-    <span>
-      <a href="http://davidcabiness.com">https://davidcabiness.com</a>
-    </span>
+    <div>
+      <span>Full Stack Web Developer</span>
+      <span>
+        <a href="http://davidcabiness.com">https://davidcabiness.com</a>
+      </span>
+    </div>
+    <div>
+      <span>dcabines@gmail.com</span>
+      <span>843-957-2476</span>
+    </div>
   </div>
 </header>
 
 <style>
-  header {
-    margin-bottom: 2rem;
-  }
-
   .full-name {
     font-size: 40px;
     text-transform: uppercase;
@@ -40,14 +37,23 @@
 
   .contact-info {
     display: flex;
-    align-items: center;
-    gap: 1ch;
   }
 
-  .separator {
-    height: 10px;
-    display: inline-block;
-    border-left: 2px solid #999;
+  .contact-info > div {
+    flex: 1;
+  }
+
+  .contact-info > div:last-child {
+    text-align: right;
+  }
+
+  .contact-info > div > span {
+    display: block;
+  }
+
+  .line > span:not(:first-child):before {
+    content: "|";
+    margin: 0 1ch;
   }
 
   a {
@@ -72,12 +78,8 @@
       display: block;
     }
 
-    .contact-info span {
-      display: block;
-    }
-
-    .contact-info .separator {
-      display: none;
+    .contact-info > div:last-child {
+      text-align: left;
     }
   }
 </style>

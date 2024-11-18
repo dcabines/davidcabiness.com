@@ -5,21 +5,21 @@
 
 July 2014 - November 2024 *(10 years, 5 months)*
 
-- Wrote a large portion of their front end and data layer
-- Led the rewrite effort of their legacy site with a team
-- Created their desktop application
-- Created their mobile site
-- Created their new time sheet application and several supporting pages
-- Created their new approval workflow system
-- Created several utilities like file generators and importers
-- Created several microservices
+- Wrote a large portion of their front end and data layer using ExtJs and Angular
+- Led the rewrite effort of their legacy site with a team of 4 developers
+- Created desktop application for users with intermittent internet access
+- Created mobile site with timesheets, timesheet approval, and PTO entry
+- Created new time sheet application and several supporting pages using Angular and NgRx
+- Created new approval workflow system using Node-Red and TypeScript
+- Created several utilities like file generators and importers for processing timesheet and personnel data
+- Created several microservices by breaking the existing monolithic application into manageable pieces
 
 ### Greenshades Software
 *Jacksonville, Florida*
 
 September 2013 - July 2014 *(11 months)*
 
-- Worked on their employee portal
+- Worked on their employee portal with a team of 3 developers
 - Rewrote their single sign on, signup, and password reset features
 
 ### Web Data Software

@@ -1,0 +1,58 @@
+---
+import Layout from "../layouts/main.astro";
+import AboutContent from "../content/about/about.md";
+---
+
+<Layout>
+  <main>
+    <AboutContent />
+  </main>
+</Layout>
+
+<style>
+  body {
+    min-height: 100%;
+    font-weight: 400;
+    background: var(--color-body);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  main {
+    min-width: 80vw;
+    max-width: fit-content;
+    color: var(--color-text);
+    background: var(--color-background);
+    box-shadow: 1px 1px 2px var(--color-grey1);
+    border-radius: 3px;
+    padding: 2rem;
+    margin-top: 4rem;
+    position: relative;
+  }
+
+  @media only screen and (max-width: 600px) {
+    main {
+      box-shadow: none;
+      width: 100vw;
+      min-width: 100vw;
+      max-width: 100vw;
+      margin: 0;
+      padding: 1rem;
+    }
+  }
+
+  @media print {
+    html {
+      font-size: 10pt;
+    }
+
+    main {
+      box-shadow: none;
+      width: 100vw;
+      min-width: 100vw;
+      max-width: 100vw;
+      margin: 0;
+    }
+  }
+</style>

@@ -1,21 +1,15 @@
 ---
 import Layout from "../layouts/main.astro";
-import Header from '../content/resume/header.astro';
+import Header from "../content/resume/header.astro";
 import Tech from "../content/resume/tech.md";
 import Experience from "../content/resume/experience.md";
-import Source from '../content/resume/source.astro';
-import Education from '../content/resume/education.md';
+import Source from "../content/resume/source.astro";
+import Education from "../content/resume/education.md";
 ---
-
-<link
-  slot="head"
-  href="https://fonts.googleapis.com/css?family=Lato:400,300,700"
-  rel="stylesheet"
-  type="text/css"
-/>
 
 <Layout>
   <main>
+    <a class="download" target="_blank" href="David Cabiness.pdf">Download</a>
     <Header />
 
     <article>
@@ -33,15 +27,10 @@ import Education from '../content/resume/education.md';
     </article>
   </main>
 </Layout>
+
 <Source />
 
 <style is:global>
-  html {
-    font-size: 16px;
-    line-height: 1.5rem;
-    font-family: "Lato", sans-serif;
-  }
-
   body {
     min-height: 100%;
     font-weight: 400;
@@ -49,6 +38,18 @@ import Education from '../content/resume/education.md';
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .download {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    background: var(--color-grey1);
+    padding: 0.5rem;
+    border-radius: 0 0 0 6px;
+    text-decoration: none;
+    color: var(--color-text);
   }
 
   main {
@@ -60,6 +61,7 @@ import Education from '../content/resume/education.md';
     border-radius: 3px;
     padding: 2rem;
     margin-top: 4rem;
+    position: relative;
   }
 
   section {
@@ -71,11 +73,12 @@ import Education from '../content/resume/education.md';
   }
 
   h2 {
-    display: block;
+    font-size: 1.5rem;
     border-bottom: 1px solid black;
   }
 
   h3 {
+    font-size: 1.2rem;
     margin-top: 1rem;
   }
 
@@ -105,6 +108,10 @@ import Education from '../content/resume/education.md';
       min-width: 100vw;
       max-width: 100vw;
       margin: 0;
+    }
+
+    .download {
+      display: none;
     }
   }
 </style>

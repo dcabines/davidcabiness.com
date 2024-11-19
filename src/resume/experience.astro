@@ -1,0 +1,55 @@
+---
+import { getEntry } from "astro:content";
+const experience1 = await getEntry("experience", "experience1");
+const experience2 = await getEntry("experience", "experience2");
+const experience3 = await getEntry("experience", "experience3");
+const { Content: Experience1 } = await experience1.render();
+const { Content: Experience2 } = await experience2.render();
+const { Content: Experience3 } = await experience3.render();
+---
+
+<h2>Experience</h2>
+
+<div>
+  <div class="job">
+    <div class="line">
+      <h3>{experience1.data.company}</h3>
+      <em>{experience1.data.location}</em>
+      <em>{experience1.data.dates}</em>
+    </div>
+    <strong>{experience1.data.position}</strong>
+    <Experience1 />
+  </div>
+
+  <div class="job">
+    <div class="line">
+      <h3>{experience2.data.company}</h3>
+      <em>{experience2.data.location}</em>
+      <em>{experience2.data.dates}</em>
+    </div>
+    <strong>{experience2.data.position}</strong>
+    <Experience2 />
+  </div>
+
+  <div class="job">
+    <div class="line">
+      <h3>{experience3.data.company}</h3>
+      <em>{experience3.data.location}</em>
+      <em>{experience3.data.dates}</em>
+    </div>
+    <strong>{experience3.data.position}</strong>
+    <Experience3 />
+  </div>
+</div>
+
+<style>
+  .job:not(:first-child) {
+    margin-top: 2rem;
+  }
+
+  .line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+</style>

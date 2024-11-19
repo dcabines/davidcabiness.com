@@ -1,10 +1,10 @@
 ---
 import Layout from "../layouts/main.astro";
-import Header from "../content/resume/header.astro";
-import Tech from "../content/resume/tech.md";
-import Experience from "../content/resume/experience.md";
-import Source from "../content/resume/source.astro";
-import Education from "../content/resume/education.md";
+import Header from "../resume/header.astro";
+import Tech from "../resume/tech.astro";
+import Source from "../resume/source.astro";
+import Education from "../resume/education.astro";
+import Experience from "../resume/experience.astro";
 ---
 
 <Layout>
@@ -12,19 +12,17 @@ import Education from "../content/resume/education.md";
     <a class="download" target="_blank" href="David Cabiness.pdf">Download</a>
     <Header />
 
-    <article>
-      <section>
-        <Tech />
-      </section>
+    <section>
+      <Tech />
+    </section>
 
-      <section>
-        <Experience />
-      </section>
+    <section>
+      <Experience />
+    </section>
 
-      <section>
-        <Education />
-      </section>
-    </article>
+    <section>
+      <Education />
+    </section>
   </main>
 </Layout>
 
@@ -65,7 +63,7 @@ import Education from "../content/resume/education.md";
   }
 
   section {
-    margin: 1rem 0;
+    margin-top: 3rem;
   }
 
   section > :not(:first-child) {
@@ -79,7 +77,6 @@ import Education from "../content/resume/education.md";
 
   h3 {
     font-size: 1.2rem;
-    margin-top: 1rem;
   }
 
   li {

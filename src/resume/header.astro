@@ -52,6 +52,16 @@
     display: block;
   }
 
+  @media only screen and (max-width: 600px) {
+    .contact-info {
+      display: block;
+    }
+
+    .contact-info > div:last-child {
+      text-align: left;
+    }
+  }
+
   @media print {
     .full-name {
       text-transform: none;

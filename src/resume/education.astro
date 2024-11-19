@@ -2,7 +2,7 @@
 
 <div>
   <div class="job">
-    <div class="header">
+    <div class="line">
       <h3>Horry-Georgetown Technical College</h3>
       <em>2010</em>
     </div>
@@ -16,9 +16,16 @@
     margin-top: 1rem;
   }
 
-  .header {
+  .line {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .line {
+      flex-direction: column;
+      align-items: start;
+    }
   }
 </style>

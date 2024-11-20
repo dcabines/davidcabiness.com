@@ -1,19 +1,25 @@
 ---
 import { getEntry } from 'astro:content';
+
 const tech1 = await getEntry('tech', 'tech1');
 const tech2 = await getEntry('tech', 'tech2');
 const tech3 = await getEntry('tech', 'tech3');
-const { Content: Tech1 } = await tech1.render();
-const { Content: Tech2 } = await tech2.render();
-const { Content: Tech3 } = await tech3.render();
+
+const columns = [
+  { ...tech1, render: await tech1.render() },
+  { ...tech2, render: await tech2.render() },
+  { ...tech3, render: await tech3.render() }
+];
 ---
 
 <h2>Languages and Technologies</h2>
 
 <div>
-  <Tech1 />
-  <Tech2 />
-  <Tech3 />
+  {
+    columns.map((column) => (
+      <column.render.Content />
+    ))
+  }
 </div>
 
 <style>

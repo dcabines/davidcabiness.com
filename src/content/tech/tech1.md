@@ -1,3 +1,0 @@
-- C# .NET & ASP.NET
-- JavaScript & TypeScript
-- HTML & CSS

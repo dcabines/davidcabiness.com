@@ -1,3 +1,0 @@
-- Angular & NgRx
-- T-SQL
-- Docker & Linux

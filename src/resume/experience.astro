@@ -1,14 +1,14 @@
 ---
 import { getEntry } from "astro:content";
 
-const webData = await getEntry("experience", "web-data");
-const greenshades = await getEntry("experience", "greenshades");
 const werktek = await getEntry("experience", "werktek");
+const greenshades = await getEntry("experience", "greenshades");
+const webData = await getEntry("experience", "web-data");
 
 const jobs = [
-  { ...werktek, render: await webData.render() },
+  { ...werktek, render: await werktek.render() },
   { ...greenshades, render: await greenshades.render() },
-  { ...webData, render: await werktek.render() },
+  { ...webData, render: await webData.render() },
 ];
 ---
 

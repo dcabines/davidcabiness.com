@@ -1,3 +1,8 @@
+---
+const emailId = 'id' + Math.random().toString(16).slice(2);
+const phoneId = 'id' + Math.random().toString(16).slice(2);
+---
+
 <header>
   <div class="full-name">
     <span class="first-name">David</span>
@@ -9,17 +14,17 @@
       <span>https://davidcabiness.com</span>
     </div>
     <div>
-      <span id="e"></span>
-      <span id="p"></span>
+      <span id={emailId}></span>
+      <span id={phoneId}></span>
     </div>
   </div>
 </header>
 
-<script>
-  const e = document.getElementById('e');
+<script is:inline>
+  const e = document.getElementById(emailId);
   if(e) e.innerText = ['dcabines','@','gmail', '.', 'com'].join('');
 
-  const p = document.getElementById('p');
+  const p = document.getElementById(phoneId);
   if(p) p.innerText = ['843', '957', '2476'].join('-');
 </script>
 

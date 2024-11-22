@@ -28,6 +28,6 @@ export async function POST({ locals, request }: APIContext) {
         "Content-Type": "application/json",
       },
     };
-  
+
     return new Response(body, options);
   }

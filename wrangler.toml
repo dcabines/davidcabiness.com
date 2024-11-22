@@ -1,5 +1,5 @@
 #:schema node_modules/wrangler/config-schema.json
-name = "David Cabiness"
+name = "DavidCabiness"
 compatibility_date = "<TBD>"
 compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = "./dist"

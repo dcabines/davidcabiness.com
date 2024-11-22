@@ -10,8 +10,8 @@ export async function GET({ locals }: APIContext) {
   const body = JSON.stringify({
     name: "David Cabiness",
     url: "google.com",
-    value,
-    todos,
+    kv: { key: value },
+    todos: todos.results,
   });
 
   const options = {

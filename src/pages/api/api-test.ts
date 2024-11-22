@@ -1,6 +1,6 @@
 import type { APIContext } from "astro";
 
-export async function GET({ locals, params, request }: APIContext) {
+export async function GET({ locals }: APIContext) {
   const myKV = locals.runtime.env.MY_KV;
   const value = await myKV.get("key");
 

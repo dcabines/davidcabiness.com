@@ -1,13 +1,16 @@
-/// <reference path="astro/types.d.ts" />
+/// <reference path="../.astro/types.d.ts" />
+/// <reference types="astro/client" />
 
-import type { D1Database, KVNamespace } from "@cloudflare/workers-types";
-import type { Runtime } from "@astrojs/cloudflare";
+type KVNamespace = import("@cloudflare/workers-types").KVNamespace;
+type D1Database = import("@cloudflare/workers-types").D1Database;
 
 type ENV = {
   MY_KV: KVNamespace;
   oltp: D1Database;
 };
 
+type Runtime = import("@astrojs/cloudflare").Runtime<ENV>;
+
 declare namespace App {
-  interface Locals extends Runtime<Env> {}
+  interface Locals extends Runtime {}
 }

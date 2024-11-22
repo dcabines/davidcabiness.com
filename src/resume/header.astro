@@ -20,7 +20,7 @@ const phoneId = 'id' + Math.random().toString(16).slice(2);
   </div>
 </header>
 
-<script define:vars={{ emailId, phoneId }}>
+<script is:inline define:vars={{ emailId, phoneId }}>
   const e = document.getElementById(emailId);
   if(e) e.innerText = ['dcabines','@','gmail', '.', 'com'].join('');
 

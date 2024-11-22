@@ -13,6 +13,6 @@ export async function GET({ locals }: APIContext) {
       url: "google.com",
       value,
       todos
-    }),
+    })
   );
 }

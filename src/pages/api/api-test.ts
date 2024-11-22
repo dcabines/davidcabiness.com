@@ -7,12 +7,18 @@ export async function GET({ locals }: APIContext) {
   const oltp = locals.runtime.env.oltp;
   const todos = await oltp.prepare("select * from todo").all();
 
-  return new Response(
-    JSON.stringify({
-      name: "David Cabiness",
-      url: "google.com",
-      value,
-      todos
-    })
-  );
+  const body = JSON.stringify({
+    name: "David Cabiness",
+    url: "google.com",
+    value,
+    todos,
+  });
+
+  const options = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  return new Response(body, options);
 }

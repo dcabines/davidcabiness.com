@@ -1,4 +1,6 @@
-export async function GET({ params, request }) {
+import type { APIContext } from "astro";
+
+export async function get({ params, request }: APIContext) {
   return new Response(
     JSON.stringify({
       name: "David Cabiness",

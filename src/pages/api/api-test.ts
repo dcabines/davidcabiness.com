@@ -1,10 +1,9 @@
 import type { APIContext } from "astro";
 
 export async function GET({ locals }: APIContext) {
-  const myKV = locals.runtime.env.MY_KV;
-  const value = await myKV.get("key");
+  const { oltp, MY_KV } = locals.runtime.env;
 
-  const oltp = locals.runtime.env.oltp;
+  const value = await MY_KV.get("key");
   const todos = await oltp.prepare("select * from todo").all();
 
   const body = JSON.stringify({

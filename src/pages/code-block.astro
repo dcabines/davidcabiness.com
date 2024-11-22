@@ -1,5 +1,5 @@
 ---
-
+const key = await Astro.locals.runtime.env.MY_KV.get("key");
 ---
 
 <html lang="en">
@@ -37,7 +37,7 @@
 
               <span class="word">
                 <span style="color:var(--color-dimmed2);">'</span>
-                <span style="color:var(--color-accent3);">David Cabiness Jr</span>
+                <span style="color:var(--color-accent3);">{key}</span>
                 <span style="color:var(--color-dimmed2);">';</span>
               </span>
             </div>

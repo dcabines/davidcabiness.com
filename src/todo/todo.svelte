@@ -17,26 +17,19 @@
   };
 
   const onadd = async (e) => {
-    const response = await fetch(`/api/todos`, {
-      method: "POST",
-      body: JSON.stringify({
-        id: nextId$,
-        status: "active",
-        tags: "tags",
-        description: e.target.value,
-      }),
+    const newTodo = await api.create({
+      id: nextId$,
+      status: "active",
+      tags: "tags",
+      description: e.target.value,
     });
 
     e.target.value = "";
-    const todo = await response.json();
-    todos$.push(todo);
+    todos$.push(newTodo);
   };
 
   const ondelete = async (todo) => {
-    await fetch(`/api/todos/${todo.id}`, {
-      method: "DELETE",
-    });
-
+    await api.remove(todo.id)
     const index = todos$.findIndex((x) => x === todo);
     todos$.splice(index, 1);
   };
@@ -44,7 +37,7 @@
 
 <div class="container">
   <div class="line">
-    <input id="new-todo" onchange={onadd} />
+    <input placeholder="Add Todo" onchange={onadd} />
   </div>
   {#each todos$ as todo}
     <div class="line">

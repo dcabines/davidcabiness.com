@@ -68,6 +68,7 @@
       />
       <button
         type="button"
+        tabindex="-1"
         disabled={updatingIds.includes(todo.id)}
         title={`Delete ${todo.description}`}
         aria-label={`Delete ${todo.description}`}

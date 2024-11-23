@@ -3,7 +3,7 @@
 
   let { todos } = $props();
   const todos$ = $state(todos);
-  let updatingIds = $state([]);
+  const updatingIds = $state([]);
 
   const nextId$ = $derived(
     todos$.map((x) => x.id).reduce((p, c) => (p < c ? c : p), 0) + 1,
@@ -33,6 +33,7 @@
     e.target.value = "";
     updatingIds.splice(updatingIds.indexOf(0), 1);
     todos$.push(newTodo);
+    e.target.focus();
   };
 
   const ondelete = async (todo) => {

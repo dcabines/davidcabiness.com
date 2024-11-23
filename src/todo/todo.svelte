@@ -26,7 +26,7 @@
   const onadd = async (e: any) => {
     const id = todos$.map((x) => x.id).reduce((p, c) => (p < c ? c : p), 0) + 1;
 
-    await update(id, async () => {
+    await update(0, async () => {
       const newTodo = await api.create({
         id,
         status: "active",

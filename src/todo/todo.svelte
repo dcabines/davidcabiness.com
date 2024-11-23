@@ -3,24 +3,25 @@
 
   let { todos } = $props();
   const todos$ = $state(todos);
+  let updatingIds = $state([]);
 
   const nextId$ = $derived(
     todos$.map((x) => x.id).reduce((p, c) => (p < c ? c : p), 0) + 1,
   );
 
   const onchange = async (e, todo) => {
-    e.target.disabled = true;
+    updatingIds.push(todo.id);
 
     const updatedTodo = await api.update(todo.id, {
       description: e.target.value,
     });
 
+    updatingIds.splice(updatingIds.indexOf(todo.id), 1);
     todos$[todos$.indexOf(todo)] = updatedTodo;
-    e.target.disabled = false;
   };
 
   const onadd = async (e) => {
-    e.target.disabled = true;
+    updatingIds.push(0);
 
     const newTodo = await api.create({
       id: nextId$,
@@ -30,26 +31,38 @@
     });
 
     e.target.value = "";
-    e.target.disabled = false;
+    updatingIds.splice(updatingIds.indexOf(0), 1);
     todos$.push(newTodo);
   };
 
   const ondelete = async (todo) => {
-    await api.remove(todo.id)
+    updatingIds.push(todo.id);
+
+    await api.remove(todo.id);
     const index = todos$.findIndex((x) => x === todo);
+    updatingIds.splice(updatingIds.indexOf(todo.id), 1);
     todos$.splice(index, 1);
   };
 </script>
 
 <div class="container">
   <div class="line">
-    <input placeholder="Add Todo" onchange={onadd} />
+    <input
+      placeholder="Add Todo"
+      disabled={updatingIds.includes(0)}
+      onchange={onadd}
+    />
   </div>
   {#each todos$ as todo}
     <div class="line">
-      <input value={todo.description} onchange={(e) => onchange(e, todo)} />
+      <input
+        value={todo.description}
+        disabled={updatingIds.includes(todo.id)}
+        onchange={(e) => onchange(e, todo)}
+      />
       <button
         type="button"
+        disabled={updatingIds.includes(todo.id)}
         title={`Delete ${todo.description}`}
         aria-label={`Delete ${todo.description}`}
         onclick={() => ondelete(todo)}
@@ -83,5 +96,9 @@
     cursor: pointer;
     border-radius: 4px;
     height: 24px;
+  }
+
+  button[disabled] {
+    display: none;
   }
 </style>

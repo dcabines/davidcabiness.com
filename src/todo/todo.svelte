@@ -9,14 +9,19 @@
   );
 
   const onchange = async (e, todo) => {
+    e.target.disabled = true;
+
     const updatedTodo = await api.update(todo.id, {
       description: e.target.value,
     });
 
     todos$[todos$.indexOf(todo)] = updatedTodo;
+    e.target.disabled = false;
   };
 
   const onadd = async (e) => {
+    e.target.disabled = true;
+
     const newTodo = await api.create({
       id: nextId$,
       status: "active",
@@ -25,6 +30,7 @@
     });
 
     e.target.value = "";
+    e.target.disabled = false;
     todos$.push(newTodo);
   };
 
@@ -76,5 +82,6 @@
     border: none;
     cursor: pointer;
     border-radius: 4px;
+    height: 24px;
   }
 </style>

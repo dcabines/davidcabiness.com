@@ -6,11 +6,30 @@ const todos = await oltp.prepare("select * from todo").all();
 ---
 
 <Layout>
+  <main>
     <Todo client:load todos={todos.results} />
+  </main>
 </Layout>
 
 <style is:global>
-  input {
-    display: block;
+  body {
+    min-height: 100%;
+    font-weight: 400;
+    background: var(--color-body);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  main {
+    min-width: fit-content;
+    max-width: fit-content;
+    color: var(--color-text);
+    background: var(--color-background);
+    box-shadow: 1px 1px 2px var(--color-grey1);
+    border-radius: 3px;
+    padding: 2rem;
+    margin-top: 4rem;
+    position: relative;
   }
 </style>

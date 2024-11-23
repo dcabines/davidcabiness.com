@@ -79,7 +79,7 @@
           height="24"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="#ff6188"
+          stroke={updatingIds.includes(todo.id) ? "#aaa" : "#ff6188"}
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -116,9 +116,5 @@
     border: none;
     cursor: pointer;
     height: 24px;
-  }
-
-  button[disabled] {
-    display: none;
   }
 </style>

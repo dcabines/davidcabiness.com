@@ -31,8 +31,7 @@ export async function DELETE({ locals, params }: APIContext) {
 export async function PUT({ locals, params, request }: APIContext) {
   const { oltp } = locals.runtime.env;
   const { description } = await request.json();
-  console.log(description);
-  const sql = "update todo set description = '?' where id = ?";
+  const sql = "update todo set description = ? where id = ?";
   await oltp.prepare(sql).bind(description, params.id).run();
 
   return new Response();

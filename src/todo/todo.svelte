@@ -1,14 +1,10 @@
 <script lang="ts">
-  import { tick } from 'svelte';
+  import { tick } from "svelte";
   import * as api from "./api";
 
   let { todos } = $props();
   const todos$ = $state(todos);
   const updatingIds = $state([]);
-
-  const nextId$ = $derived(
-    todos$.map((x) => x.id).reduce((p, c) => (p < c ? c : p), 0) + 1,
-  );
 
   const onchange = async (e, todo) => {
     updatingIds.push(todo.id);
@@ -19,13 +15,18 @@
 
     updatingIds.splice(updatingIds.indexOf(todo.id), 1);
     todos$[todos$.indexOf(todo)] = updatedTodo;
+
+    tick().then(() => {
+      e.target.focus();
+    });
   };
 
   const onadd = async (e) => {
     updatingIds.push(0);
+    const id = todos$.map((x) => x.id).reduce((p, c) => (p < c ? c : p), 0) + 1;
 
     const newTodo = await api.create({
-      id: nextId$,
+      id,
       status: "active",
       tags: "tags",
       description: e.target.value,

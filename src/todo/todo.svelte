@@ -16,3 +16,9 @@
     <input value={todo.description} onchange={(e) => onchange(e, todo)} />
   {/each}
 </div>
+
+<style>
+  input {
+    display: block;
+  }
+</style>

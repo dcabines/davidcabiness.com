@@ -1,5 +1,7 @@
 ---
 import Todo from '../todo/todo.svelte';
+const { oltp } = Astro.locals.runtime.env;
+const todos = await oltp.prepare("select * from todo").all();
 ---
 
-<Todo client:load />
+<Todo client:load todos={todos.results} />

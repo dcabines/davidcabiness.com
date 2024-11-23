@@ -1,7 +1,7 @@
 <script>
   let { todos } = $props();
   const todos$ = $state(todos);
-
+  const nextId$ = $derived(todos$.map((x) => x.id).reduce((p, c) => (p < c ? c : p), 0) + 1);
 
   const onchange = (e, todo) => {
     fetch(`/api/todos/${todo.id}`, {
@@ -13,13 +13,10 @@
   };
 
   const onadd = async (e) => {
-    const newId =
-    todos$.map((x) => x.id).reduce((p, c) => (p < c ? c : p), 0) + 1;
-
     const response = await fetch(`/api/todos`, {
       method: "POST",
       body: JSON.stringify({
-        id: newId,
+        id: nextId$,
         status: "active",
         tags: "tags",
         description: e.target.value,
@@ -36,7 +33,7 @@
       method: "DELETE",
     });
 
-    const index = todos$.findIndex(todo);
+    const index = todos$.findIndex(x => x === todo);
     todos$.splice(index, 1);
   };
 </script>

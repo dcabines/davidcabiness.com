@@ -11,14 +11,21 @@
   };
 </script>
 
-<div>
-  {#each todos as todo}
-    <input value={todo.description} onchange={(e) => onchange(e, todo)} />
-  {/each}
-</div>
+{#each todos as todo}
+  <div>
+    <label for={todo.id}>{todo.id}</label>
+    <input id={todo.id} value={todo.description} onchange={(e) => onchange(e, todo)} />
+  </div>
+{/each}
 
 <style>
+  div {
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
   input {
-    display: block;
+    padding: 0.25rem;
   }
 </style>

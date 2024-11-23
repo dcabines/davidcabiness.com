@@ -1,53 +1,53 @@
 <script lang="ts">
   import { tick } from "svelte";
+  import type { Todo } from "./api";
   import * as api from "./api";
 
   let { todos } = $props();
-  const todos$ = $state(todos);
-  const updatingIds = $state([]);
+  const todos$ = $state(todos as Todo[]);
+  const updatingIds = $state([] as number[]);
 
-  const onchange = async (e, todo) => {
-    updatingIds.push(todo.id);
+  const update = async (todoId: number, action: () => Promise<void>) => {
+    updatingIds.push(todoId);
+    await action();
+    updatingIds.splice(updatingIds.indexOf(todoId), 1);
+  };
 
-    const updatedTodo = await api.update(todo.id, {
-      description: e.target.value,
-    });
+  const onchange = async (e: any, todo: Todo) => {
+    await update(todo.id, async () => {
+      const updatedTodo = await api.update(todo.id, {
+        description: e.target.value,
+      });
 
-    updatingIds.splice(updatingIds.indexOf(todo.id), 1);
-    todos$[todos$.indexOf(todo)] = updatedTodo;
-
-    tick().then(() => {
-      e.target.focus();
+      todos$.splice(todos$.indexOf(todo), 1, updatedTodo);
     });
   };
 
-  const onadd = async (e) => {
-    updatingIds.push(0);
+  const onadd = async (e: any) => {
     const id = todos$.map((x) => x.id).reduce((p, c) => (p < c ? c : p), 0) + 1;
 
-    const newTodo = await api.create({
-      id,
-      status: "active",
-      tags: "tags",
-      description: e.target.value,
+    await update(id, async () => {
+      const newTodo = await api.create({
+        id,
+        status: "active",
+        tags: "tags",
+        description: e.target.value,
+      });
+
+      todos$.push(newTodo);
     });
 
-    e.target.value = "";
-    updatingIds.splice(updatingIds.indexOf(0), 1);
-    todos$.push(newTodo);
-
     tick().then(() => {
+      e.target.value = "";
       e.target.focus();
     });
   };
 
-  const ondelete = async (todo) => {
-    updatingIds.push(todo.id);
-
-    await api.remove(todo.id);
-    const index = todos$.findIndex((x) => x === todo);
-    updatingIds.splice(updatingIds.indexOf(todo.id), 1);
-    todos$.splice(index, 1);
+  const ondelete = async (todo: Todo) => {
+    await update(todo.id, async () => {
+      await api.remove(todo.id);
+      todos$.splice(todos$.indexOf(todo), 1);
+    });
   };
 </script>
 

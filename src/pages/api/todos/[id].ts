@@ -28,11 +28,12 @@ export async function DELETE({ locals, params }: APIContext) {
   return new Response();
 }
 
-export async function PUT({ locals, params, request }: APIContext) {
+export async function PUT(context: APIContext) {
+  const { locals, params, request } = context;
   const { oltp } = locals.runtime.env;
   const { description } = await request.json();
   const sql = "update todo set description = ? where id = ?";
   await oltp.prepare(sql).bind(description, params.id).run();
 
-  return new Response();
+  return await GET(context);
 }

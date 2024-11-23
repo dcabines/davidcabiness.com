@@ -6,7 +6,7 @@ const todos = await oltp.prepare("select * from todo").all();
 
 <Todo client:load todos={todos.results} />
 
-<style>
+<style is:global>
   input {
     display: block;
   }

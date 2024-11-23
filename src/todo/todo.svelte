@@ -10,10 +10,10 @@
     });
   };
 
-  const onadd = (e) => {
+  const onadd = async (e) => {
     const newId = todos.map(x => x.id).reduce((p,c) => p < c ? c : p, 0) + 1;
 
-    fetch(`/api/todos`, {
+    await fetch(`/api/todos`, {
       method: "POST",
       body: JSON.stringify({
         id: newId,
@@ -22,6 +22,8 @@
         description: e.target.value,
       }),
     });
+
+    e.target.value = '';
   };
 
   const onclick = async (todo) => {

@@ -51,7 +51,7 @@
         value={todo.description}
         onchange={(e) => onchange(e, todo)}
       />
-      <button type="button" onclick={() => onclick(todo)}>X</button>
+      <button type="button" onclick={() => onclick(todo)}>🗑</button>
     </div>
   {/each}
 </div>
@@ -65,5 +65,13 @@
 
   input {
     padding: 0.25rem;
+  }
+
+  button {
+    background: none;
+    border: none;
+    color: red;
+    padding: 0.25rem;
+    border-radius: 4px;
   }
 </style>

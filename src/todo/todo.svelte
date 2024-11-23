@@ -11,10 +11,12 @@
   };
 
   const onadd = (e) => {
+    const newId = todos.map(x => x.id).reduce((p,c) => p < c ? c : p, 0) + 1;
+
     fetch(`/api/todos`, {
       method: "POST",
       body: JSON.stringify({
-        id: todos.reduce((p,c) => p < c ? c : p, 0) + 1,
+        id: newId,
         status: 'active',
         tags: 'tags',
         description: e.target.value,

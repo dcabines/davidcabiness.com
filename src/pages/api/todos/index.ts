@@ -17,7 +17,7 @@ export async function GET({ locals }: APIContext) {
 export async function POST({ locals, request }: APIContext) {
     const { oltp } = locals.runtime.env;
     const { id, status, description, tags } = await request.json();
-    const insert = "insert into todo (id, status, description, tags) values (?1, ?2, ?3, ?4)";
+    const insert = "insert into todo (id, status, description, tags) values (?, ?, ?, ?)";
 
     await oltp.prepare(insert).bind(id, status, description, tags).run();
 

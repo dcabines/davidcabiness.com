@@ -51,8 +51,8 @@
         value={todo.description}
         onchange={(e) => onchange(e, todo)}
       />
-      <button type="button" aria-label={`Delete ${todo.description}`} onclick={() => onclick(todo)}>
-        <svg><use href="/icons/trash.svg" /></svg>
+      <button type="button" title={`Delete ${todo.description}`} aria-label={`Delete ${todo.description}`} onclick={() => onclick(todo)}>
+        <img src="/icons/trash.svg" alt={`Delete ${todo.description}`} />
       </button>
     </div>
   {/each}

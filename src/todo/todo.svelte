@@ -7,14 +7,14 @@
   );
 
   const onchange = async (e, todo) => {
-    const updatedTodo = await fetch(`/api/todos/${todo.id}`, {
+    const response = await fetch(`/api/todos/${todo.id}`, {
       method: "PUT",
       body: JSON.stringify({
         description: e.target.value,
       }),
     });
 
-    todos$[todos$.indexOf(todo)] = updatedTodo;
+    todos$[todos$.indexOf(todo)] = await response.json();
   };
 
   const onadd = async (e) => {

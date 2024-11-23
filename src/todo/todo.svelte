@@ -5,7 +5,7 @@
     fetch(`/api/todos/${todo.id}`, {
       method: "PUT",
       body: JSON.stringify({
-        description: e.value
+        description: e.target.value
       }),
     });
   };

@@ -5,7 +5,7 @@
     fetch(`/api/todos/${todo.id}`, {
       method: "PUT",
       body: JSON.stringify({
-        description: e.target.value
+        description: e.target.value,
       }),
     });
   };
@@ -16,9 +16,3 @@
     <input value={todo.description} onchange={(e) => onchange(e, todo)} />
   {/each}
 </div>
-
-<style>
-    input {
-        display: block;
-    }
-</style>

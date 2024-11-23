@@ -2,10 +2,9 @@
   let { todos } = $props();
 
   const onchange = (e, todo) => {
-    fetch("/api/todos/", {
+    fetch(`/api/todos/${todo.id}`, {
       method: "PUT",
       body: JSON.stringify({
-        id: todo.id,
         description: e.value
       }),
     });
@@ -17,3 +16,9 @@
     <input value={todo.description} onchange={(e) => onchange(e, todo)} />
   {/each}
 </div>
+
+<style>
+    input {
+        display: block;
+    }
+</style>

@@ -10,16 +10,35 @@
     });
   };
 
+  const onadd = (e) => {
+    fetch(`/api/todos`, {
+      method: "POST",
+      body: JSON.stringify({
+        id: todos.reduce((p,c) => p < c ? c : p, 0) + 1,
+        status: 'active',
+        tags: 'tags',
+        description: e.target.value,
+      }),
+    });
+  };
+
   const onclick = async (todo) => {
     await fetch(`/api/todos/${todo.id}`, {
       method: "DELETE",
     });
 
-    todos = todos.filter(x => x.id !== todo.id);
+    todos = todos.filter((x) => x.id !== todo.id);
   };
 </script>
 
 <div class="container">
+  <div>
+    <label for="new-todo">0</label>
+    <input
+      id="new-todo"
+      onchange={onadd}
+    />
+  </div>
   {#each todos as todo}
     <div>
       <label for={todo.id}>{todo.id}</label>

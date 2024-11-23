@@ -25,6 +25,8 @@ export async function DELETE({ locals, params }: APIContext) {
   const { oltp } = locals.runtime.env;
   const sql = "delete from todo where id = ?1";
   await oltp.prepare(sql).bind(params.id).all();
+
+  return new Response();
 }
 
 export async function PUT({ locals, params, request }: APIContext) {
@@ -33,4 +35,6 @@ export async function PUT({ locals, params, request }: APIContext) {
   console.log(description);
   const sql = "update todo set description = '?1' where id = ?2";
   await oltp.prepare(sql).bind(description, params.id).all();
+
+  return new Response();
 }

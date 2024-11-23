@@ -24,7 +24,7 @@
     });
 
     const response = await fetch(`/api/todos`);
-    todos = response.json();
+    todos = await response.json();
 
     e.target.value = '';
   };

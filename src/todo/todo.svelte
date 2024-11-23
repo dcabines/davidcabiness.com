@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { tick } from 'svelte';
   import * as api from "./api";
 
   let { todos } = $props();
@@ -33,7 +34,10 @@
     e.target.value = "";
     updatingIds.splice(updatingIds.indexOf(0), 1);
     todos$.push(newTodo);
-    e.target.focus();
+
+    tick().then(() => {
+      e.target.focus();
+    });
   };
 
   const ondelete = async (todo) => {
@@ -95,7 +99,6 @@
     background: none;
     border: none;
     cursor: pointer;
-    border-radius: 4px;
     height: 24px;
   }
 

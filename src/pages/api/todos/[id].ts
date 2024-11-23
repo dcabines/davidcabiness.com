@@ -31,6 +31,6 @@ export async function PUT({ locals, params, request }: APIContext) {
   const { oltp } = locals.runtime.env;
   const { description } = await request.json();
   console.log(description);
-  const sql = "update todo set description = '?2' where id = ?1";
-  await oltp.prepare(sql).bind(params.id, description).all();
+  const sql = "update todo set description = '?1' where id = ?2";
+  await oltp.prepare(sql).bind(description, params.id).all();
 }

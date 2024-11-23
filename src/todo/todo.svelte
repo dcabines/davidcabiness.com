@@ -1,4 +1,6 @@
-<script>
+<script lang="ts">
+  import * as api from "./api";
+
   let { todos } = $props();
   const todos$ = $state(todos);
 
@@ -7,14 +9,11 @@
   );
 
   const onchange = async (e, todo) => {
-    const response = await fetch(`/api/todos/${todo.id}`, {
-      method: "PUT",
-      body: JSON.stringify({
-        description: e.target.value,
-      }),
+    const updatedTodo = await api.update(todo.id, {
+      description: e.target.value,
     });
 
-    todos$[todos$.indexOf(todo)] = await response.json();
+    todos$[todos$.indexOf(todo)] = updatedTodo;
   };
 
   const onadd = async (e) => {

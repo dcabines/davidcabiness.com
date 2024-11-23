@@ -1,5 +1,7 @@
 <script>
   let { todos } = $props();
+  const todos$ = $state(todos);
+
 
   const onchange = (e, todo) => {
     fetch(`/api/todos/${todo.id}`, {
@@ -11,21 +13,22 @@
   };
 
   const onadd = async (e) => {
-    const newId = todos.map(x => x.id).reduce((p,c) => p < c ? c : p, 0) + 1;
+    const newId =
+    todos$.map((x) => x.id).reduce((p, c) => (p < c ? c : p), 0) + 1;
 
     const response = await fetch(`/api/todos`, {
       method: "POST",
       body: JSON.stringify({
         id: newId,
-        status: 'active',
-        tags: 'tags',
+        status: "active",
+        tags: "tags",
         description: e.target.value,
       }),
     });
 
-    e.target.value = '';
+    e.target.value = "";
     const todo = await response.json();
-    todos.push(todo);
+    todos$.push(todo);
   };
 
   const onclick = async (todo) => {
@@ -33,19 +36,17 @@
       method: "DELETE",
     });
 
-    todos = todos.filter((x) => x.id !== todo.id);
+    const index = todos$.findIndex(todo);
+    todos$.splice(index, 1);
   };
 </script>
 
 <div class="container">
   <div>
     <label for="new-todo">0</label>
-    <input
-      id="new-todo"
-      onchange={onadd}
-    />
+    <input id="new-todo" onchange={onadd} />
   </div>
-  {#each todos as todo}
+  {#each todos$ as todo}
     <div>
       <label for={todo.id}>{todo.id}</label>
       <input

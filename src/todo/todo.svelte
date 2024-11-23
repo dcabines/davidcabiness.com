@@ -13,7 +13,7 @@
   const onadd = async (e) => {
     const newId = todos.map(x => x.id).reduce((p,c) => p < c ? c : p, 0) + 1;
 
-    await fetch(`/api/todos`, {
+    const response = await fetch(`/api/todos`, {
       method: "POST",
       body: JSON.stringify({
         id: newId,
@@ -23,10 +23,9 @@
       }),
     });
 
-    const response = await fetch(`/api/todos`);
-    todos = await response.json();
-
     e.target.value = '';
+    const todo = await response.json();
+    todos.push(todo);
   };
 
   const onclick = async (todo) => {

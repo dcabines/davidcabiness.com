@@ -23,6 +23,9 @@
       }),
     });
 
+    const response = await fetch(`/api/todos`);
+    todos = response.json();
+
     e.target.value = '';
   };
 
